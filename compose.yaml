@@ -1,10 +1,29 @@
 services:
-  claude:
+  opencode:
     build:
-      dockerfile: Containerfile 
+      dockerfile: opencode.Containerfile
       context: .
     stdin_open: true
     tty: true
+    working_dir: /home/opencode/workspace
+    userns_mode: keep-id
+    user: 1000:1000
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - opencode_config:/home/opencode/.config/opencode
+      - .:/home/opencode/workspace
+
+  claude:
+    build:
+      dockerfile: claude.Containerfile 
+      context: .
+    stdin_open: true
+    tty: true
+    userns_mode: keep-id
+    user: 1000:1000
     working_dir: /home/claude/workspace
     cap_drop:
       - ALL
@@ -14,3 +33,6 @@ services:
       CLAUDE_CONFIG_DIR: /home/claude/workspace/claude_config
     volumes:
       - .:/home/claude/workspace
+
+volumes:
+  opencode_config:

@@ -3,7 +3,17 @@ AI Agent isolation
 
 This is a template to run Claude Code with full priviledges in an isolated enviroment.
 
-It is based on Podman Compose. This setup works for any type of agent which comes with a TUI. OpenCode, Ralph, Junie, etc. ACP is also easy to add.
+It is based on Podman Compose. 
+
+Advantages:
+
+- works for any type of agent which comes with a TUI: OpenCode, Ralph, Junie, etc. 
+- ACP is easy to add
+
+Disadvantages:
+
+- Need to install required software beforehand
+    - Can run the agent as root to allow it to install software, but it does not persist across reboots
 
 Instructions for Windows
 ---
@@ -18,6 +28,6 @@ Instructions for Windows
       podman machine start
       podman run quay.io/podman/hello
       ```
-5. Open this project in a terminal, run `podman compose up -d`. Claude should be running in the background.
-6. Bring it to the foreground with `podman compose attach claude`
+5. Open this project in a terminal, run `podman compose up -d opencode`. The agent terminal interface should be running in the background.
+6. Bring it to the foreground with `podman compose attach opencode`
 7. Bob's your uncle.

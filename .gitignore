@@ -1,5 +1,5 @@
 *
 !.gitignore
 !compose.yaml
-!Containerfile
+!*.Containerfile
 !README.md

@@ -8,7 +8,6 @@ It is based on Podman Compose.
 Advantages:
 
 - works for any type of agent which comes with a TUI: OpenCode, Ralph, Junie, etc. 
-- ACP is easy to add
 
 Disadvantages:
 

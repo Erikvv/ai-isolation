@@ -27,6 +27,5 @@ Instructions for Windows
       podman machine start
       podman run quay.io/podman/hello
       ```
-5. Open this project in a terminal, run `podman compose up -d opencode`. The agent terminal interface should be running in the background.
-6. Bring it to the foreground with `podman compose attach opencode`
-7. Bob's your uncle.
+5. Open this project in a terminal, run `podman compose run opencode`. The agent terminal interface should be running.
+6. Bob's your uncle.
